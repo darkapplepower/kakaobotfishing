@@ -1,6 +1,7 @@
 /*
-MIT LICENCE
-copyright (c) 2021 darkapplepower
+MIT License
+
+Copyright (c) 2021 darkapplepower
 */
 const PATH=android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/darkapple/fishing/userData.txt";
 const userData=JSON.parse(FileStream.read(PATH)===null ? FileStream.write(PATH, "{}") : FileStream.read(PATH));
