@@ -51,7 +51,7 @@ function response(room, msg, sender, igc, replier){
     }
     if(msg==='/낚시 레벨'){
         checkUser(sender);
-        replier.reply(sender+"님의 낚시 레벨은 "+userData[sender].level+"입니다\n"+
+        replier.reply(sender+"\u202d님의 낚시 레벨은 "+userData[sender].level+"입니다\n"+
         "다음 레벨까지 필요한 경험치: "+userData[sender].point+"/"+getPoint(userData[sender].level));
     }
     if(msg==="/인벤토리"){
@@ -80,7 +80,7 @@ function saveData(){
 }
 function startFishing(name, data, send){
     isFishing[name]=true;
-    send.reply(name+"\u200e님이 낚시를 시작했습니다");
+    send.reply(name+"\u202d님이 낚시를 시작했습니다");
     java.lang.Thread.sleep((10+(Math.random()*20|0))*1000);
     send.reply(getRandomFish(data, data.level));
     isFishing[name]=false;
@@ -129,8 +129,8 @@ function getRank(){
         if(!i2.length){
             return false;
         }
-        return i1[Object.keys(i1).sort((y,x)=>i1[x][0]-i1[y][0])[0]][0]-i2[Object.keys(i2).sort((y,x)=>i2[x][0]-i2[y][0])[0]][0]
-    }).map((x,xx)=>(xx+1)+"위 "+x+getBigfish(x)).join("\n\n");
+        return i1[Object.keys(i1).sort((y,x)=>i1[x][0]-i1[y][0])[0]][0]-i2[Object.keys(i2).sort((y,x)=>i2[x][0]-i2[y][0])[0]][0];
+    }).map((x,xx)=>(xx+1)+"위 "+x+"\u202d"+getBigfish(x)).join("\n\n");
 }
 function getBigfish(name){
     let i1=userData[name].inventory;
